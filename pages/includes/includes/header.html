@@ -1,0 +1,12 @@
+<header id="header">
+    <div id="dfyHolder"><a href="https://www.dorsetforyou.gov.uk" title="DorsetForYou homepage">
+        <img src="images/dfy.png" id="dfyLogo" alt=""></a>
+    </div>
+    <div id="titleHolder">
+        <div id="title">
+            <a href="/advertise" id="titleLink" title="Advertise Dorset homepage">Advertise Dorset</a>
+            <img id="brandImage" src="../assets/images/advertiseLogo.png" alt="">
+        </div>
+    </div>
+    <div v-if="signedIn != ''"><a @click="logout">logout</a></div>
+</header>

@@ -1,4 +1,4 @@
-{
+npn{
   "name": "advertise-node",
   "version": "1.0.0",
   "description": "",
@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/DorsetCouncilDev/advertise-node#readme",
   "dependencies": {
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "nunjucks": "^3.1.6"
   }
 }
