@@ -1,4 +1,4 @@
-npn{
+{
   "name": "advertise-node",
   "version": "1.0.0",
   "description": "",
@@ -22,7 +22,14 @@ npn{
   },
   "homepage": "https://github.com/DorsetCouncilDev/advertise-node#readme",
   "dependencies": {
+    "axios": "^0.18.0",
+    "bootstrap": "^4.1.3",
     "express": "^4.16.4",
+    "nodemon": "^1.18.9",
     "nunjucks": "^3.1.6"
+  },
+  "devDependencies": {
+    "node-sass": "^4.11.0",
+    "node-sass-middleware": "^0.11.0"
   }
 }

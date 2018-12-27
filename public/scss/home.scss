@@ -1,0 +1,123 @@
+$buttonBrowseDark: darken(#5975de,50%);
+$buttonBrowse: darken(#5975de,30%);
+
+$buttonBrowseHoverDark: darken(#5975de,40%);
+$buttonBrowseHover: darken(#5975de,20%);
+
+$buttonGoDark: darken(#60d844,50%);
+$buttonGo:darken(#60d844,30%);
+
+ $buttonGoHoverDark: darken(#60d844,40%);
+$buttonGoHover:darken(#60d844,20%);
+
+
+.home-action-label {
+    font-size: 26px;
+    text-align:left;
+    font-weight: 400;
+    margin-bottom:30px;
+}
+
+input {
+    border-color: black;
+}
+
+#postcodeSearchBlock {
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+#browseLinkBlock {
+    margin-bottom: 20px;
+    
+}
+#browseLink{
+    background-image: linear-gradient(to right, $buttonBrowseDark,$buttonBrowse);
+    &:hover{
+        background-image: linear-gradient(to right, $buttonBrowseHoverDark, $buttonBrowseHover);
+    }
+}
+#searchGoBtn{
+     background-image: linear-gradient(to right, $buttonGoDark, $buttonGo);
+    &:hover{
+        background-image: linear-gradient(to right, $buttonGoHoverDark, $buttonGoHover);
+    }
+}
+@media only screen and (min-width: 576px) {
+    #postcodeSearchBlock {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+    #browseLinkBlock {
+        margin-top: 30px;
+        margin-bottom: 30px;
+    }
+
+}
+#postcodeLabel{
+    position:absolute;
+}
+
+#homepageHeading{
+    margin-top:50px;
+    font-weight: 400;
+    font-size: 36px;
+    color:#3a3a3a;
+}
+.document-types-section{
+    margin-top:30px;
+    background:hsl(40,96,68);
+    padding:15px;
+    color:hsl(40,96,15);
+    .sub-heading-types{
+        max-width:1340px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+    p{
+        max-width:1340px;
+        margin-left:auto;
+        margin-right:auto;
+    }
+}
+.document-types-list{
+    margin-top:50px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.sub-heading-types{
+    font-size:26px;
+    margin-bottom:15px;
+}
+
+.document-type-square{
+    width:400px;
+   background:hsl(40,96,95);
+  color:hsl(40,96,15);
+    padding:10px;
+    margin-right:25px;
+    margin-bottom:25px;
+}
+.type-icon{
+    width:125px;
+}
+.type-name{
+    font-size: 19px;
+    text-align: center;
+    font-weight:500;
+}
+.document-type-icon{
+    display: flex;
+    justify-content: center;
+}
+.type-text{
+    font-style: italic; 
+    text-align:center;
+}
+
+#promoteBrandEmph{
+    color:black;
+    font-style: italic;
+    font-weight:600;
+}

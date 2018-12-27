@@ -1,0 +1,173 @@
+// @import "~govuk_template_jinja/assets/stylesheets/fonts";
+$blue : darken(#5975de,20%);
+$indigo : #6610f2;
+$purple : #2e358b;
+$pink : pink;
+$red : #b10e1e;
+$orange : orange;
+$yellow : yellow;
+$green : #006435;
+$teal : #20c997;
+$cyan : #17a2b8;
+
+$warning: $orange;
+$enable-rounded : true;
+$enable-shadows : true;
+
+$font-size-base: 1rem * 1.1875;
+
+$input-focus-border-color: $orange;
+$input-btn-focus-color : $orange;
+$input-btn-focus-box-shadow : $orange;
+
+$alert-border-level: 0;
+
+$container-max-widths: ( sm: 640px,
+md: 820px,
+lg: 960px,
+xl: 1140px) !default;
+
+
+@import './node_modules/bootstrap/scss/bootstrap';
+
+
+
+
+@each $color,
+$value in $theme-colors {
+    .btn-#{$color} {
+
+        background- &:focus {
+            box-shadow: 0 0 0 0.2rem orange;
+        }
+    }
+}
+
+
+@import "header";
+@import "multiple-choice";
+@import 'nav';
+
+.container{
+    max-width:1340px;
+}
+.form-error-message{
+    display:block;
+    color:$red;
+    font-weight:700;
+    line-height:1.3;
+    font-size: $font-size-base;
+}
+label{
+    margin-bottom: 0;
+    padding-bottom:2px;
+}
+.form-label-bold{
+    font-size:$font-size-base;
+    display: block;
+    font-weight:700;
+    line-height: 1.3;
+}
+.container{
+    overflow:visible;
+}
+.alert {
+    border-top: 0 none transparent;
+    border-right: 0 none transparent;
+    border-bottom: 0 none transparent;
+    border-left-width: 5px;
+    border-left-style: solid;
+    background: none;
+}
+
+.btn-govuk {
+    background: $green;
+    border-bottom: solid black 4px;
+
+}
+
+.card-header {
+    &.black {
+        background: black;
+        color: white;
+    }
+}
+
+.component-fade-enter-active,
+.component-fade-leave-active {
+    transition: opacity .3s ease;
+
+}
+
+.component-fade-enter,
+.component-fade-leave-to
+/* .component-fade-leave-active below version 2.1.8 */
+
+    {
+    opacity: 0;
+
+}
+
+.tab-pane {
+    border-left: solid 1px #dee2e6;
+    border-right: solid 1px #dee2e6;
+    padding: 15px;
+}
+
+.nav-item {
+    border: 1px solid #dee2e6;
+}
+
+.ad-modal-body {
+    padding: 15px;
+}
+
+.modal-body {
+    padding: 0;
+}
+
+#mfooter {
+    padding: 30px;
+    position: relative;
+    background: hsl(210, 9%, 96%);
+    display: flex;
+    justify-content: space-between;
+&.doingStuff {
+        opacity: .3;
+    }
+}
+
+.modal-header {
+    border-bottom: none;
+    background:#e9ecef;
+}
+
+.modal.show modal-dialog {
+    box-shadow: 0 17px 17px rgba(0, 0, 0, .15), 0 27px 55px rgba(0, 0, 0, .3) !important;
+}
+
+
+.form-group{
+    &.hasError{
+        input,select,textarea{
+            border:solid 1px darkred;
+        }
+    }
+}
+
+
+
+@import 'nav';
+
+.icon-mail,.icon-phone-ring{
+    width:28px;
+    margin-right:5px;
+
+
+}
+
+
+.full-width {
+    margin-left: calc(-100vw / 2 + 1340px / 2);
+    margin-right: calc(-100vw / 2 + 1340px / 2);
+  }

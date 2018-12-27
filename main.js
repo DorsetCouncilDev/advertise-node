@@ -8,7 +8,7 @@ var app = express();
 
 // Compile sass files to css
 app.use(sassMiddleware({
-    src: path.join(__dirname, 'public/sass'),
+    src: path.join(__dirname, 'public/scss'),
     dest: path.join(__dirname, 'public/css'),
     debug: true,
     sourceMap: true,
@@ -32,7 +32,7 @@ app.get( '/', function( req, res ) {
 });
 
 app.get( '/search', function( req, res ) {
-
+    return res.render( 'search.html') ;
 });
 
 app.get( '/asset', function( req, res ) {
