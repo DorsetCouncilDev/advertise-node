@@ -1,27 +1,203 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset=utf-8>
     <meta name=viewport content="width=device-width,initial-scale=1">
     <title>Advertise in Dorset</title>
-    <link href="main.css" rel="stylesheet">
-    <link href="home.css" rel="stylesheet">
-    
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/search.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="/javascript/sorting.js"></script>
 </head>
 
 <body>
     <div class="container">
         {% include "includes/header.html" %}
         <div id="contactContainer">
-            <a href="mailto:marketing@dorsetcc.gov.uk"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-mail"><path class="primary-icon" d="M22 8.62V18a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.62l9.55 4.77a1 1 0 0 0 .9 0L22 8.62z"/><path class="secondary-icon" d="M12 11.38l-10-5V6c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v.38l-10 5z"/></svg> marketing@dorsetcc.gov.uk</a>
-            <a href="tel:+441305224125"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-phone-ring"><path class="primary-icon" d="M4 2h4a1 1 0 0 1 .98.8l1 5a1 1 0 0 1-.27.9l-2.52 2.52a12.05 12.05 0 0 0 5.59 5.59l2.51-2.52a1 1 0 0 1 .9-.27l5 1c.47.1.81.5.81.98v4a2 2 0 0 1-2 2h-2A16 16 0 0 1 2 6V4c0-1.1.9-2 2-2z"/></svg> 01305 224125</a>
-        </div> 
-        
-        <h1>Search assets</h1>
+            <a href="mailto:marketing@dorsetcc.gov.uk"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                    class="icon-mail">
+                    <path class="primary-icon" d="M22 8.62V18a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8.62l9.55 4.77a1 1 0 0 0 .9 0L22 8.62z" />
+                    <path class="secondary-icon" d="M12 11.38l-10-5V6c0-1.1.9-2 2-2h16a2 2 0 0 1 2 2v.38l-10 5z" /></svg>
+                marketing@dorsetcc.gov.uk</a>
+            <a href="tel:+441305224125"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="icon-phone-ring">
+                    <path class="primary-icon" d="M4 2h4a1 1 0 0 1 .98.8l1 5a1 1 0 0 1-.27.9l-2.52 2.52a12.05 12.05 0 0 0 5.59 5.59l2.51-2.52a1 1 0 0 1 .9-.27l5 1c.47.1.81.5.81.98v4a2 2 0 0 1-2 2h-2A16 16 0 0 1 2 6V4c0-1.1.9-2 2-2z" /></svg>
+                01305 224125</a>
+        </div>
+
+        <h1 id="searchPageHeading">Search assets</h1>
+
+        <div id="searchContainer">
+
+            <div class="card bg-light" id="searchFormContainer">
+                <div class="card-header">Filter Assets</div>
+                <div class="card-body">
+                    <form action="search" method="GET" id="filterForm">
+                        <div class="form-group">
+                            <label for="postcode">Full postcode</label>
+                            {{ error }}
+                            <input type="text" id="postcode" class="form-control" name="postcode" value="{{postcode}}">
+                        </div>
+                        <div class="form-group">
+                            <div class="multiple-choice" title="available assets">
+                                <input type="checkbox" class="form-control" id="available" name="available" {% if
+                                    available %}checked{% endif %}>
+                                <label for="available" class="mutliple-choice-label form-legend">Show available only</label>
+                            </div>
+                        </div>
+
+                        <legend class="form-legend">Types</legend>
+                        {% for type in documentTypes %}
+                        <div class="type-options">
+
+                            <div class="form-group">
+                                <div class="multiple-choice" title="{{type.name}}">
+                                    <input type="checkbox" class="form-control type-checkbox" id="{{type.reference}}"
+                                        name="{{type.reference}}" value="true" {% if type.checked=='checked'
+                                        %}checked{% endif %}>
+                                    <label for="{{type.reference}}" class="mutliple-choice-label">{{type.name}} </label>
+                                </div>
+                            </div>
+                            <div class="type-icon">
+                                <img class="type-icon" src="/images/icons/{{type.reference}}.svg" alt="">
+                            </div>
+
+                        </div>
+                        {%- endfor %}
+                        <button class="btn btn-success btn-block mt-4" type="submit">Search</button>
+
+                    </form>
+                </div>
+            </div>
+            <div id="searchResultsContainer">
+
+                <div id="viewOptionsContainer">
+               
+                        <div id="selectSortContainer">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon2">Order by</span>
+                                </div>
+                                <select type="text" class="form-control" aria-label="Recipient's username"
+                                    aria-describedby="basic-addon2" onchange="sortDocuments(this)">
+                                    <option value="price-high">Price - highest</option>
+                                    <option value="price-low">Price - lowest</option>
+                                </select>
+
+                            </div>
+                        </div>
+                        <div id="assetViewOptionsContainer">
+                            <div class="view-selection">
+                                <input type="radio" class="view-radio-btn" id="one" name="tickme" value="mapView">
+                                <label for="one" id="mapViewLabel" tabindex="0">
+
+                                    <svg class="view-icon" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M0 0h24v24H0V0z" fill="none" />
+                                        <path d="M21 3L3 10.53v.98l6.84 2.65L12.48 21h.98L21 3z" />
+                                    </svg>
+
+                                    Map
 
 
+                                </label>
+                            </div>
 
+                            <div class="view-selection">
+                                <input type="radio" class="view-radio-btn" id="two" name="tickme" value="gridView">
+                                <label for="two" id="gridViewLabel" tabindex="0">
+
+                                    <svg class="view-icon" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4 11h5V5H4v6zm0 7h5v-6H4v6zm6 0h5v-6h-5v6zm6 0h5v-6h-5v6zm-6-7h5V5h-5v6zm6-6v6h5V5h-5z" />
+                                        <path d="M0 0h24v24H0z" fill="none" />
+                                    </svg>
+
+                                    Grid</label>
+                            </div>
+
+                            <div class="view-selection">
+                                <input type="radio" class="view-radio-btn" id="three" name="tickme" value="listView">
+                                <label for="three" id="listViewLabel" tabindex="0">
+
+                                    <svg class="view-icon" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M4 14h4v-4H4v4zm0 5h4v-4H4v4zM4 9h4V5H4v4zm5 5h12v-4H9v4zm0 5h12v-4H9v4zM9 5v4h12V5H9z" />
+                                        <path d="M0 0h24v24H0z" fill="none" />
+                                    </svg>
+
+                                    List</label>
+                            </div>
+                        </div>
        
+
+                </div>
+                <div id="assetsContainer">
+
+
+
+                    {% for result in results %}
+                    <div class="card asset-card">
+                        <a href="{{result.document.reference}}" class="asset-link"></a>
+                        <div class="card-body">{{result.document.name}}<p> {% if result.document.price %} £ <span class="price">{{result.document.price}}</span>{%
+                                endif %}</p>
+                            <p> {% if result.distanceFromCoordinate %}{{result.distanceFromCoordinate |
+                                round(1,'floor')}}{% endif %} </p>
+                            <p>{% if result.document.available == 'true' %}Available{% endif %}</p>
+                        </div>
+                        {% for location in result.document.locations %}
+                        <input class="location-lat" type="hidden" value="{{location.latitude}}">
+                        <input class="location-lng" type="hidden" value="{{location.longitude}}">
+                        {%- endfor %}
+                    </div>
+                    {%- endfor %}
+
+
+                </div>
+            </div>
+
+
+        </div>
+
     </div>
+    <script>
+        
+        document.addEventListener('DOMContentLoaded', function () {
+            var searchContainer = document.getElementById("searchContainer");
+            var filterForm = document.getElementById("filterForm");
+            var typeCheckboxes = document.getElementsByClassName("type-checkbox");
+            for (var i = 0; i < typeCheckboxes.length; i++) {
+                typeCheckboxes[i].addEventListener("change", function () {
+                    filterForm.submit();
+                });
+            };
+
+
+            var documentCards = document.getElementsByClassName("asset-card");
+
+
+
+            for (var i = 0; i < documentCards.length; i++) {
+                var name = documentCards[i].getElementsByClassName("card-body")[0].innerHTML;
+                console.log("name: " + name);
+                var locationsLat = documentCards[i].getElementsByClassName("location-lat");
+                var locationsLng = documentCards[i].getElementsByClassName("location-lng");
+                console.log("----------------------------------------------")
+                for (var l = 0; l < locationsLat.length; l++) {
+                    console.log("location: " + locationsLat[l].value + " , " + locationsLng[l].value);
+                }
+                console.log("----------------------------------------------")
+                console.log("");
+            }
+
+            function getCookie(name) {
+                var value = "; " + document.cookie;
+                var parts = value.split("; " + name + "=");
+                if (parts.length == 2) return parts.pop().split(";").shift();
+            }
+            console.log(getCookie("name"));
+
+
+        }, false);
+    </script>
+
 </body>
+
 </html>

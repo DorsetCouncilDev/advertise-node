@@ -1,13 +1,21 @@
 const express = require("express");
 const nunjucks = require("nunjucks");
 const sassMiddleware = require("node-sass-middleware");
-const axios = require("axios");
+
 const path = require("path");
+const { check,validationResult } = require("express-validator/check");
+const { sanitizeBody } = require("express-validator/filter");
+const cookieParser = require("cookie-parser");
 
 var app = express();
+app.use(cookieParser());
+var router = require("./routes/routes.js");
+app.use("/advertise",router);
 
-// Compile sass files to css
+
+
 app.use(sassMiddleware({
+
     src: path.join(__dirname, 'public/scss'),
     dest: path.join(__dirname, 'public/css'),
     debug: true,
@@ -15,9 +23,12 @@ app.use(sassMiddleware({
     indentedSyntax : false,
     outputStyle: 'compressed'
   })); 
+  
 
 // Declare assets location
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'));
+
+
 
 // Page template configuration
 var PATH_TO_TEMPLATES = './pages' ;
@@ -26,18 +37,10 @@ nunjucks.configure( PATH_TO_TEMPLATES, {
     express: app
 });
 
-// routes
-app.get( '/', function( req, res ) {
-    return res.render( 'index.html') ;
-});
 
-app.get( '/search', function( req, res ) {
-    return res.render( 'search.html') ;
-});
+app.listen(3000, () => {
+    // a console.log() which triggers Nodemon's "stdout" event 
+    console.log(`Express server listening on port 3000`);
+  });
 
-app.get( '/asset', function( req, res ) {
-
-});
-
-// run local server
-app.listen( 3000 );
+  

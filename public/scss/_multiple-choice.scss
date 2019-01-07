@@ -9,7 +9,7 @@ $gutter-one-third: 5px;
   position: relative;
 
   padding: 0 0 0 38px;
-  margin-bottom: $gutter-one-third;
+  margin-bottom:10px;
 
     /*
   @include media(tablet) {
@@ -73,13 +73,15 @@ $gutter-one-third: 5px;
 
   [type=checkbox] + label::before {
     content: "";
-    border: solid 1px #ced4da;
+    border:solid 1px black;
     background: transparent;
     width: 34px;
     height: 34px;
     position: absolute;
     top: 0;
     left: 0;
+    border-radius:5px;
+    background: white;
   }
 
   [type=checkbox] + label::after {
@@ -113,7 +115,10 @@ $gutter-one-third: 5px;
   // Selected state
   input:checked + label::after {
     opacity: 1;
+    border-color: black
   }
+
+
     
 
 

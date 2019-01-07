@@ -25,8 +25,11 @@
 #contactContainer{
    // background:hsl(202,91%,36%);
     padding:2px 0;
-    border-top:hsl(184,60,60) solid 1px;
-    border-bottom:hsl(184,60,60)  solid 1px;
+   // border-top:hsl(184,60,60) solid 1px;
+   // border-bottom:hsl(184,60,60)  solid 1px;
+   border-top:solid 2px lightgrey;
+   border-bottom:solid 2px lightgrey;
+   margin-bottom:30px;
    a{ 
       // color: hsl(202,91%,94%);
       color:black;
@@ -37,22 +40,23 @@
             text-decoration: none;
         }
         .primary-icon{
-            fill: white;
-            stroke: hsl(189,50%,62%);
+         fill:none;
+         stroke: lightgrey;
         }
         .secondary-icon{
-               fill: white;
-            stroke: hsl(189,50%,62%);
+         fill:none;
+         stroke: lightgrey;
         }
         &:hover{
             color:hsl(189,50%,32%);
             .primary-icon{
-                fill: hsl(189,80%,92%);
-                stroke: hsl(189,50%,62%);
+                fill:none;
+                stroke: lightgrey;
+           
             }
             .secondary-icon{
-                fill: hsl(189,80%,92%);
-                stroke: hsl(189,50%,62%);
+                fill:none;
+                stroke: lightgrey;
             }
         }
    }

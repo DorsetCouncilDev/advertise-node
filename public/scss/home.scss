@@ -1,10 +1,10 @@
-$buttonBrowseDark: darken(#5975de,50%);
+$buttonBrowseDark: darken(#5975de,40%);
 $buttonBrowse: darken(#5975de,30%);
 
 $buttonBrowseHoverDark: darken(#5975de,40%);
 $buttonBrowseHover: darken(#5975de,20%);
 
-$buttonGoDark: darken(#60d844,50%);
+$buttonGoDark: darken(#60d844,40%);
 $buttonGo:darken(#60d844,30%);
 
  $buttonGoHoverDark: darken(#60d844,40%);
@@ -32,15 +32,20 @@ input {
     
 }
 #browseLink{
-    background-image: linear-gradient(to right, $buttonBrowseDark,$buttonBrowse);
-    &:hover{
-        background-image: linear-gradient(to right, $buttonBrowseHoverDark, $buttonBrowseHover);
+    .browse-link{
+        width:45px; 
     }
+    &:hover{
+        .browse-link{
+            color:white;
+        }
+    }
+    
 }
 #searchGoBtn{
-     background-image: linear-gradient(to right, $buttonGoDark, $buttonGo);
+    background-color: $buttonGoDark;
     &:hover{
-        background-image: linear-gradient(to right, $buttonGoHoverDark, $buttonGoHover);
+        background-color: $buttonGo;
     }
 }
 @media only screen and (min-width: 576px) {
@@ -66,7 +71,6 @@ input {
 }
 .document-types-section{
     margin-top:30px;
-    background:hsl(40,96,68);
     padding:15px;
     color:hsl(40,96,15);
     .sub-heading-types{
@@ -93,7 +97,7 @@ input {
 
 .document-type-square{
     width:400px;
-   background:hsl(40,96,95);
+   background:#f1f1f1;
   color:hsl(40,96,15);
     padding:10px;
     margin-right:25px;
@@ -121,3 +125,5 @@ input {
     font-style: italic;
     font-weight:600;
 }
+
+

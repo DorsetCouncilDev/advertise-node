@@ -1,3 +1,95 @@
-.home-action-label{font-size:26px;text-align:left;font-weight:400;margin-bottom:30px}input{border-color:black}#postcodeSearchBlock{margin-top:15px;margin-bottom:10px}#browseLinkBlock{margin-bottom:20px}#browseLink{background-image:linear-gradient(to right, #09112f, #1a3084)}#browseLink:hover{background-image:linear-gradient(to right, #122159, #2340ae)}#searchGoBtn{background-image:linear-gradient(to right, #091805, #276c17)}#searchGoBtn:hover{background-image:linear-gradient(to right, #18420e, #36971f)}@media only screen and (min-width: 576px){#postcodeSearchBlock{margin-top:30px;margin-bottom:30px}#browseLinkBlock{margin-top:30px;margin-bottom:30px}}#postcodeLabel{position:absolute}#homepageHeading{margin-top:50px;font-weight:400;font-size:36px;color:#3a3a3a}.document-types-section{margin-top:30px;background:#fcc85f;padding:15px;color:#4b3202}.document-types-section .sub-heading-types{max-width:1340px;margin-left:auto;margin-right:auto}.document-types-section p{max-width:1340px;margin-left:auto;margin-right:auto}.document-types-list{margin-top:50px;display:flex;justify-content:center;flex-wrap:wrap}.sub-heading-types{font-size:26px;margin-bottom:15px}.document-type-square{width:400px;background:#fef6e6;color:#4b3202;padding:10px;margin-right:25px;margin-bottom:25px}.type-icon{width:125px}.type-name{font-size:19px;text-align:center;font-weight:500}.document-type-icon{display:flex;justify-content:center}.type-text{font-style:italic;text-align:center}#promoteBrandEmph{color:black;font-style:italic;font-weight:600}
+.home-action-label {
+  font-size: 26px;
+  text-align: left;
+  font-weight: 400;
+  margin-bottom: 30px; }
 
-/*# sourceMappingURL=home.css.map */
+input {
+  border-color: black; }
+
+#postcodeSearchBlock {
+  margin-top: 15px;
+  margin-bottom: 10px; }
+
+#browseLinkBlock {
+  margin-bottom: 20px; }
+
+#browseLink .browse-link {
+  width: 45px; }
+
+#browseLink:hover .browse-link {
+  color: white; }
+
+#searchGoBtn {
+  background-color: #18420e; }
+  #searchGoBtn:hover {
+    background-color: #276c17; }
+
+@media only screen and (min-width: 576px) {
+  #postcodeSearchBlock {
+    margin-top: 30px;
+    margin-bottom: 30px; }
+  #browseLinkBlock {
+    margin-top: 30px;
+    margin-bottom: 30px; } }
+
+#postcodeLabel {
+  position: absolute; }
+
+#homepageHeading {
+  margin-top: 50px;
+  font-weight: 400;
+  font-size: 36px;
+  color: #3a3a3a; }
+
+.document-types-section {
+  margin-top: 30px;
+  padding: 15px;
+  color: #4b3202; }
+  .document-types-section .sub-heading-types {
+    max-width: 1340px;
+    margin-left: auto;
+    margin-right: auto; }
+  .document-types-section p {
+    max-width: 1340px;
+    margin-left: auto;
+    margin-right: auto; }
+
+.document-types-list {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap; }
+
+.sub-heading-types {
+  font-size: 26px;
+  margin-bottom: 15px; }
+
+.document-type-square {
+  width: 400px;
+  background: #f1f1f1;
+  color: #4b3202;
+  padding: 10px;
+  margin-right: 25px;
+  margin-bottom: 25px; }
+
+.type-icon {
+  width: 125px; }
+
+.type-name {
+  font-size: 19px;
+  text-align: center;
+  font-weight: 500; }
+
+.document-type-icon {
+  display: flex;
+  justify-content: center; }
+
+.type-text {
+  font-style: italic;
+  text-align: center; }
+
+#promoteBrandEmph {
+  color: black;
+  font-style: italic;
+  font-weight: 600; }
