@@ -9,6 +9,7 @@
     <link href="/css/search.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
     <script src="/javascript/sorting.js"></script>
+    <script src="/javascript/map.js"></script>
 </head>
 
 <body>
@@ -49,7 +50,6 @@
                         <legend class="form-legend">Types</legend>
                         {% for type in documentTypes %}
                         <div class="type-options">
-
                             <div class="form-group">
                                 <div class="multiple-choice" title="{{type.name}}">
                                     <input type="checkbox" class="form-control type-checkbox" id="{{type.reference}}"
@@ -61,78 +61,72 @@
                             <div class="type-icon">
                                 <img class="type-icon" src="/images/icons/{{type.reference}}.svg" alt="">
                             </div>
-
                         </div>
                         {%- endfor %}
                         <button class="btn btn-success btn-block mt-4" type="submit">Search</button>
-
                     </form>
                 </div>
             </div>
             <div id="searchResultsContainer">
-
                 <div id="viewOptionsContainer">
-               
-                        <div id="selectSortContainer">
-                            <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <span class="input-group-text" id="basic-addon2">Order by</span>
-                                </div>
-                                <select type="text" class="form-control" aria-label="Recipient's username"
-                                    aria-describedby="basic-addon2" onchange="sortDocuments(this)">
-                                    <option value="price-high">Price - highest</option>
-                                    <option value="price-low">Price - lowest</option>
-                                </select>
-
+                    <div id="selectSortContainer">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text" id="basic-addon2">Order by</span>
                             </div>
+                            <select type="text" class="form-control" aria-label="Recipient's username" aria-describedby="basic-addon2"
+                                onchange="sortDocuments(this)">
+                                <option value="price-high">Price - highest</option>
+                                <option value="price-low">Price - lowest</option>
+                            </select>
+
                         </div>
-                        <div id="assetViewOptionsContainer">
-                            <div class="view-selection">
-                                <input type="radio" class="view-radio-btn" id="one" name="tickme" value="mapView">
-                                <label for="one" id="mapViewLabel" tabindex="0">
+                    </div>
+                    <div id="assetViewOptionsContainer">
+                        <div class="view-selection">
+                            <input type="radio" class="view-radio-btn" id="mapViewSelection" name="viewLayout" value="mapView"
+                                onChange="selectView()" {% if selectedView == 'map' %} checked {% endif %}>
+                            <label for="mapViewSelection" id="mapViewLabel" tabindex="0">
 
-                                    <svg class="view-icon" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M0 0h24v24H0V0z" fill="none" />
-                                        <path d="M21 3L3 10.53v.98l6.84 2.65L12.48 21h.98L21 3z" />
-                                    </svg>
-
-                                    Map
-
-
-                                </label>
-                            </div>
-
-                            <div class="view-selection">
-                                <input type="radio" class="view-radio-btn" id="two" name="tickme" value="gridView">
-                                <label for="two" id="gridViewLabel" tabindex="0">
-
-                                    <svg class="view-icon" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M4 11h5V5H4v6zm0 7h5v-6H4v6zm6 0h5v-6h-5v6zm6 0h5v-6h-5v6zm-6-7h5V5h-5v6zm6-6v6h5V5h-5z" />
-                                        <path d="M0 0h24v24H0z" fill="none" />
-                                    </svg>
-
-                                    Grid</label>
-                            </div>
-
-                            <div class="view-selection">
-                                <input type="radio" class="view-radio-btn" id="three" name="tickme" value="listView">
-                                <label for="three" id="listViewLabel" tabindex="0">
-
-                                    <svg class="view-icon" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                        <path d="M4 14h4v-4H4v4zm0 5h4v-4H4v4zM4 9h4V5H4v4zm5 5h12v-4H9v4zm0 5h12v-4H9v4zM9 5v4h12V5H9z" />
-                                        <path d="M0 0h24v24H0z" fill="none" />
-                                    </svg>
-
-                                    List</label>
-                            </div>
+                                <svg class="view-icon" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0V0z" fill="none" />
+                                    <path d="M21 3L3 10.53v.98l6.84 2.65L12.48 21h.98L21 3z" />
+                                </svg>
+                                Map
+                            </label>
                         </div>
-       
 
+                        <div class="view-selection">
+                            <input type="radio" class="view-radio-btn" id="gridViewSelection" name="viewLayout" value="gridView"
+                                onChange="selectView()" {% if selectedView == 'grid' %} checked {% endif %}>
+                            <label for="gridViewSelection" id="gridViewLabel" tabindex="0">
+
+                                <svg class="view-icon" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 11h5V5H4v6zm0 7h5v-6H4v6zm6 0h5v-6h-5v6zm6 0h5v-6h-5v6zm-6-7h5V5h-5v6zm6-6v6h5V5h-5z" />
+                                    <path d="M0 0h24v24H0z" fill="none" />
+                                </svg>
+                                Grid</label>
+                        </div>
+
+                        <div class="view-selection">
+                            <input type="radio" class="view-radio-btn" id="listViewSelection" name="viewLayout" value="listView"
+                                onChange="selectView()" {% if selectedView == 'list' %} checked {% endif %}>
+                            <label for="listViewSelection" id="listViewLabel" tabindex="0">
+
+                                <svg class="view-icon" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 14h4v-4H4v4zm0 5h4v-4H4v4zM4 9h4V5H4v4zm5 5h12v-4H9v4zm0 5h12v-4H9v4zM9 5v4h12V5H9z" />
+                                    <path d="M0 0h24v24H0z" fill="none" />
+                                </svg>
+                                List</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="mapContainer">
+                    <div id="map"></div>
+                    MAP!
                 </div>
                 <div id="assetsContainer">
-
-
-
                     {% for result in results %}
                     <div class="card asset-card">
                         <a href="{{result.document.reference}}" class="asset-link"></a>
@@ -142,24 +136,38 @@
                                 round(1,'floor')}}{% endif %} </p>
                             <p>{% if result.document.available == 'true' %}Available{% endif %}</p>
                         </div>
+                        <input class="doc-type-ref" type="hidden" value="{{result.document.documentTypeReference}}">
                         {% for location in result.document.locations %}
                         <input class="location-lat" type="hidden" value="{{location.latitude}}">
                         <input class="location-lng" type="hidden" value="{{location.longitude}}">
+                        
                         {%- endfor %}
                     </div>
                     {%- endfor %}
-
-
                 </div>
             </div>
-
-
         </div>
-
     </div>
     <script>
-        
+        function selectView() {
+            if (document.getElementById("listViewSelection").checked) {
+                document.getElementById("assetsContainer").classList.remove("assetsContainerGrid");
+                document.getElementById("mapContainer").style.display = "none";
+                document.getElementById("assetsContainer").style.display = "flex";
+                document.cookie = "selectedView=list; path=/";
+            } else if (document.getElementById("gridViewSelection").checked) {
+                document.getElementById("assetsContainer").classList.add("assetsContainerGrid");
+                document.getElementById("mapContainer").style.display = "none";
+                document.getElementById("assetsContainer").style.display = "flex";
+                document.cookie = "selectedView=grid; path=/";
+            } else if (document.getElementById("mapViewSelection").checked) {
+                document.getElementById("mapContainer").style.display = "block";
+                document.getElementById("assetsContainer").style.display = "none";
+                document.cookie = "selectedView=map; path=/";
+            }
+        }
         document.addEventListener('DOMContentLoaded', function () {
+            selectView();
             var searchContainer = document.getElementById("searchContainer");
             var filterForm = document.getElementById("filterForm");
             var typeCheckboxes = document.getElementsByClassName("type-checkbox");
@@ -169,34 +177,19 @@
                 });
             };
 
-
-            var documentCards = document.getElementsByClassName("asset-card");
-
-
-
-            for (var i = 0; i < documentCards.length; i++) {
-                var name = documentCards[i].getElementsByClassName("card-body")[0].innerHTML;
-                console.log("name: " + name);
-                var locationsLat = documentCards[i].getElementsByClassName("location-lat");
-                var locationsLng = documentCards[i].getElementsByClassName("location-lng");
-                console.log("----------------------------------------------")
-                for (var l = 0; l < locationsLat.length; l++) {
-                    console.log("location: " + locationsLat[l].value + " , " + locationsLng[l].value);
-                }
-                console.log("----------------------------------------------")
-                console.log("");
-            }
-
             function getCookie(name) {
                 var value = "; " + document.cookie;
                 var parts = value.split("; " + name + "=");
                 if (parts.length == 2) return parts.pop().split(";").shift();
             }
             console.log(getCookie("name"));
-
-
         }, false);
+
+        
+       
     </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVLqUxdgLoBovYi83r-2YZNgvZFlsJR2g&callback=initMap"
+        async defer></script>
 
 </body>
 
