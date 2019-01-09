@@ -3,9 +3,6 @@ const nunjucks = require("nunjucks");
 const sassMiddleware = require("node-sass-middleware");
 
 const path = require("path");
-const { check,validationResult } = require("express-validator/check");
-const { sanitizeBody } = require("express-validator/filter");
-const cookieParser = require("cookie-parser");
 
 var app = express();
 app.use(cookieParser());
