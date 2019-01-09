@@ -7,6 +7,7 @@ const nunjucks = require("nunjucks");
 
 
 var app = express();
+app.use(express.static('public'));
 app.use(cookieParser());
 
 app.set('pages', path.join(__dirname, 'pages'));
@@ -16,7 +17,7 @@ nunjucks.configure( PATH_TO_TEMPLATES, {
     autoescape: true,
     express: app
 });
-
+app.set('view engine', 'html');
 var router = require("./routes/routes.js");
 app.use("/advertise",router);
 
@@ -34,7 +35,7 @@ app.use(sassMiddleware({
   */
 
 // Declare assets location
-app.use(express.static('public'));
+
 
 
 
