@@ -10,7 +10,7 @@ var app = express();
 app.use(express.static('public'));
 app.use(cookieParser());
 
-app.set('pages', path.join(__dirname, 'pages'));
+
 // Page template configuration
 var PATH_TO_TEMPLATES = './pages' ;
 nunjucks.configure( PATH_TO_TEMPLATES, {
