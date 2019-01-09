@@ -8,6 +8,15 @@ const nunjucks = require("nunjucks");
 
 var app = express();
 app.use(cookieParser());
+
+app.set('pages', path.join(__dirname, 'pages'));
+// Page template configuration
+var PATH_TO_TEMPLATES = './pages' ;
+nunjucks.configure( PATH_TO_TEMPLATES, {
+    autoescape: true,
+    express: app
+});
+
 var router = require("./routes/routes.js");
 app.use("/advertise",router);
 
@@ -29,12 +38,7 @@ app.use(express.static('public'));
 
 
 
-// Page template configuration
-var PATH_TO_TEMPLATES = './pages' ;
-nunjucks.configure( PATH_TO_TEMPLATES, {
-    autoescape: true,
-    express: app
-});
+
 
 const port=process.env.PORT || 3000
 app.listen(port, () => {
