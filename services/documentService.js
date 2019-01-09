@@ -26,7 +26,7 @@
 
     exports.setAvailable = function (documents) {
         for (var i = 0; i < documents.length; i++) {
-            documents[i].document.available = isAvailable(documents[i].document.properties)
+            documents[i].document.available = isAvailable(documents[i].document.properties);
         }
         return documents;
     }

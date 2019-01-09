@@ -62,7 +62,7 @@ exports.search = async function(req,res){
             "longitude": address.longitude,
             "unit": "MILE",
             "range": 10
-        }
+        };
       }).catch((err)=>{
         console.log("error " + err);
     });
@@ -80,11 +80,11 @@ exports.search = async function(req,res){
         // documents = sortResultsByProperty(documents,"price","high");
     }).catch((err)=>{
         console.log("error " + err);
-    })
+    });
     documentTypes.forEach((type)=>{
         if(searchPostParameters.documentTypes.includes(type.reference))
             type.checked = "checked";
-    })
+    });
     var availableOnly = false;
     if(searchPostParameters.parameters.length > 0)
         availableOnly = true;
