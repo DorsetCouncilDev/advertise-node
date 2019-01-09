@@ -1,8 +1,10 @@
 const express = require("express");
+const path = require("path");
+var cookieParser = require('cookie-parser');
 const nunjucks = require("nunjucks");
 const sassMiddleware = require("node-sass-middleware");
 
-const path = require("path");
+
 
 var app = express();
 app.use(cookieParser());
