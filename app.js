@@ -2,7 +2,7 @@ const express = require("express");
 const path = require("path");
 var cookieParser = require('cookie-parser');
 const nunjucks = require("nunjucks");
-const sassMiddleware = require("node-sass-middleware");
+// const sassMiddleware = require("node-sass-middleware");
 
 
 
@@ -12,7 +12,7 @@ var router = require("./routes/routes.js");
 app.use("/advertise",router);
 
 
-
+/*
 app.use(sassMiddleware({
 
     src: path.join(__dirname, 'public/scss'),
@@ -22,7 +22,7 @@ app.use(sassMiddleware({
     indentedSyntax : false,
     outputStyle: 'compressed'
   })); 
-  
+  */
 
 // Declare assets location
 app.use(express.static('public'));
