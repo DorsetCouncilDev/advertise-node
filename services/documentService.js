@@ -1,8 +1,12 @@
 
     const axios = require("axios");
     
+const testWebService = "http://52.56.188.219/catalogue/v1/indexes/advertise";
+const liveWebService = "https://web.dorsetcc.gov.uk/catalogue/v1/indexes/";
+var advertiseWebService = liveWebService;
+
     exports.getDocumentTypes = function() {
-        return axios.get('http://52.56.188.219/catalogue/v1/indexes/advertise');
+        return axios.get(advertiseWebService);
     }
 
     exports.setPrices = function(documents) {

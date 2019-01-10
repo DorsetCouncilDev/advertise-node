@@ -1,5 +1,9 @@
 const axios = require("axios");
 
+const testWebService = "http://52.56.188.219/catalogue/v1/search/index/advertise";
+const liveWebService = "https://web.dorsetcc.gov.uk/catalogue/v1/search/index/advertise";
+var advertiseWebService = liveWebService;
+
 exports.parseSearchParameters = function(query, references) {
     var typesParameters = [];
 
@@ -37,5 +41,5 @@ exports.setInitalSearchParameters = function(references) {
 }
 
 exports.search = function(searchParameters) {
-    return axios.post('http://52.56.188.219/catalogue/v1/search/index/advertise', searchParameters);
+    return axios.post(liveWebService, searchParameters);
 }
