@@ -1,3 +1,3 @@
-exports.home = async function(req,res){
+exports.home = function(req,res){
     return res.render( 'index.html');
 };

@@ -1,0 +1,13 @@
+#assetPageHeading {
+  font-size: 32px;
+  font-weight: normal; }
+
+#assetPageSubHeading {
+  font-size: 19px;
+  font-weight: normal; }
+
+#availabilityContainer {
+  padding: 5px;
+  background: #fafafa;
+  margin-top: 15px;
+  margin-bottom: 15px; }

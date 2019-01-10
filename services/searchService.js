@@ -1,8 +1,20 @@
 const axios = require("axios");
 
-const testWebService = "http://52.56.188.219/catalogue/v1/search/index/advertise";
-const liveWebService = "https://web.dorsetcc.gov.uk/catalogue/v1/search/index/advertise";
-var advertiseWebService = liveWebService;
+const testSearchWebService = "http://52.56.188.219/catalogue/v1/search/index/advertise";
+const liveSearchWebService = "https://web.dorsetcc.gov.uk/catalogue/v1/search/index/advertise";
+var advertiseSearchWebService = liveSearchWebService;
+
+/*
+axios.interceptors.request.use(request => {
+    console.log('Starting Request', request)
+    return request
+  })
+  
+  axios.interceptors.response.use(response => {
+    console.log('Response:', response)
+    return response
+  })
+*/
 
 exports.parseSearchParameters = function(query, references) {
     var typesParameters = [];
@@ -41,5 +53,5 @@ exports.setInitalSearchParameters = function(references) {
 }
 
 exports.search = function(searchParameters) {
-    return axios.post(liveWebService, searchParameters);
+    return axios.post(advertiseSearchWebService , searchParameters);
 }

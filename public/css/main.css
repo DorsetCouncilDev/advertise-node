@@ -6626,7 +6626,7 @@ background- .btn-dark:focus {
     line-height: 35px; }
     #contactContainer a:hover {
       color: white;
-      text-decoration: none; }
+      text-decoration: underline; }
     #contactContainer a .primary-icon {
       fill: none;
       stroke: lightgrey; }
@@ -6773,7 +6773,7 @@ label {
     line-height: 35px; }
     #contactContainer a:hover {
       color: white;
-      text-decoration: none; }
+      text-decoration: underline; }
     #contactContainer a .primary-icon {
       fill: none;
       stroke: lightgrey; }
@@ -6789,9 +6789,9 @@ label {
         fill: none;
         stroke: lightgrey; }
 
-.icon-mail, .icon-phone-ring {
+.icon-mail, .icon-phone-ring, .icon-document-notes {
   width: 28px;
-  margin-right: 5px; }
+  margin-top: -6px; }
 
 .full-width {
   margin-left: calc(-100vw / 2 + 1340px / 2);

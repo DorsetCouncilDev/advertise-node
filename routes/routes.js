@@ -9,9 +9,10 @@ var contact_controller = require("../controllers/contactController");
 
 router.get("/", homepage_controller.home);
 router.get("/search",search_controller.search);
+router.get("/contact",contact_controller.contact);
 router.get("/:asset",asset_controller.asset);
 
 router.get("/mediapack",mediapack_controller.mediapack);
-router.get("/contact-form",contact_controller.contact);
+
 
 module.exports = router;

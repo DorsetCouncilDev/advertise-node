@@ -1,0 +1,41 @@
+<div class="card" id="searchFormContainer">
+    <div class="card-header">Filter Assets</div>
+    <div class="card-body">
+        <form action="search" method="GET" id="filterForm">
+                <div id="filterSection">
+            <div class="form-group">
+                <label for="postcode">Full postcode</label>
+                {{ error }}
+                <input type="text" id="postcode" class="form-control" name="postcode" value="{{postcode}}">
+            </div>
+        </div>
+            <div id="filterSection">
+            <div class="form-group">
+                <div class="multiple-choice" title="available assets">
+                    <input type="checkbox" class="form-control" id="available" name="available" {% if available
+                        %}checked{% endif %}>
+                    <label for="available" class="mutliple-choice-label form-legend">Show available only</label>
+                </div>
+            </div>
+        </div>
+            <div id="filterSection">
+                <legend class="form-legend">Types</legend>
+                {% for type in documentTypes %}
+                <div class="type-options">
+                    <div class="form-group">
+                        <div class="multiple-choice" title="{{type.name}}">
+                            <input type="checkbox" class="form-control type-checkbox" id="{{type.reference}}" name="{{type.reference}}"
+                                value="true" {% if type.checked=='checked' %}checked{% endif %}>
+                            <label for="{{type.reference}}" class="mutliple-choice-label">{{type.name}} </label>
+                        </div>
+                    </div>
+                    <div class="type-icon">
+                        <img class="type-icon" src="/images/icons/{{type.reference}}.svg" alt="">
+                    </div>
+                </div>
+                {%- endfor %}
+            </div>
+            <button class="btn btn-success btn-block mt-4" type="submit">Search</button>
+        </form>
+    </div>
+</div>

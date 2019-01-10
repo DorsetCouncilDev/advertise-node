@@ -1,13 +1,10 @@
 const axios = require("axios");
-
+const documentService = require("../services/documentService");
 exports.asset = async function(req,res){
     var document= null;
-    await getDocument(req.params.asset).then((response)=>{
+    await documentService.getDocument(req.params.asset).then((response)=>{
         document = response.data;
+        document.availability = documentService.getAvailability(document.properties);
     });
-    return res.render( 'asset.html',{asset:document}) ;
+    return res.render( 'asset.html',{asset:document});
 };
-
-function getDocument(documentReference){
-    return axios.get('http://52.56.188.219/catalogue/v1/indexes/advertise/documents/' + documentReference);
-  };

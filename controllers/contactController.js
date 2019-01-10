@@ -1,3 +1,3 @@
-exports.contact = async function(req,res){
-    return res.render( 'index.html') ;
+exports.contact = function(req,res){
+    return res.render( 'contact.html');
 };
