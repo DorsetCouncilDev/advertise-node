@@ -1,18 +1,18 @@
-const express = require("express");
-const path = require("path");
+const express = require('express');
+const path = require('path');
 var cookieParser = require('cookie-parser');
-const nunjucks = require("nunjucks");
+const nunjucks = require('nunjucks');
 // const sassMiddleware = require("node-sass-middleware");
 
-
-
 var app = express();
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
+
+
 app.use(cookieParser());
 
 
 // Page template configuration
-var PATH_TO_TEMPLATES = './pages' ;
+var PATH_TO_TEMPLATES = './pages';
 nunjucks.configure( PATH_TO_TEMPLATES, {
     autoescape: true,
     express: app
