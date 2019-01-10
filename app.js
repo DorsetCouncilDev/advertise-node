@@ -1,6 +1,6 @@
 const express = require('express');
 const path = require('path');
-//var cookieParser = require('cookie-parser');
+var cookieParser = require('cookie-parser');
 const nunjucks = require('nunjucks');
 // const sassMiddleware = require("node-sass-middleware");
 
@@ -8,7 +8,7 @@ var app = express();
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-//app.use(cookieParser());
+app.use(cookieParser());
 
 
 // Page template configuration
