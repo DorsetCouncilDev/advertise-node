@@ -1,6 +1,7 @@
 {
   "name": "advertise-node",
   "version": "1.0.0",
+   "engines" : { "node" : ">=8.11" }, 
   "description": "",
   "repository": {
     "type": "git",
