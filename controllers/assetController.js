@@ -4,7 +4,8 @@ exports.asset = async function(req,res){
     var document= null;
     await documentService.getDocument(req.params.asset).then((response)=>{
         document = response.data;
-        document.availability = documentService.getAvailability(document.properties);
+        document.availabilityDescription = documentService.getAvailabilityDescription(document.properties);
+        document.availabilityStatus = documentService.getAvailabilityStatus(document.properties);
     });
     return res.render( 'asset.html',{asset:document});
 };

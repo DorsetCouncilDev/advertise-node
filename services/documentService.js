@@ -57,10 +57,19 @@ axios.interceptors.request.use(request => {
         return axios.get(advertiseWebService + '/documents/' + documentReference);
       };
 
-    exports.getAvailability = function(properties){
+    exports.getAvailabilityDescription = function(properties){
         console.log("p-length: " + properties.length);
         for (var i = 0; i < properties.length; i++) {
             if (properties[i].propertyName == 'Availability') {
+                return properties[i].publishedValue;
+            }
+        }
+      }
+
+      exports.getAvailabilityStatus = function(properties){
+        console.log("p-length: " + properties.length);
+        for (var i = 0; i < properties.length; i++) {
+            if (properties[i].propertyName == 'Available') {
                 return properties[i].publishedValue;
             }
         }

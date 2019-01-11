@@ -1,3 +1,3 @@
-exports.mediapack = async function(req,res){
-    return res.render( 'index.html');
+exports.mediapack =  function(req,res){
+    return res.render( 'mediapack.html');
 };

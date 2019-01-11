@@ -15,7 +15,9 @@
         <h1 id="assetPageHeading">{{asset.name}}</h1>
         <h2 id="assetPageSubHeading">{{asset.documentTypeName}} {% if asset.longText %} - {{asset.longText}} {% endif %}</h2> 
         <div id="availabilityContainer">
-        <p>{{asset.availability}}</p> 
+    
+        {% if asset.availabilityStatus == 'true' %}<a href="/advertise/contact/book" class="btn btn-success">{{asset.availabilityDescription}}<br><span style="font-weight:bold">Book now!</span></a> {% endif %}
+        {% if asset.availabilityStatus == 'false' %}<a href="/advertise/contact/waitinglist" class="btn btn-light">Add me to waiting list</a> {% endif %}
         </div>
     </div>
 </body>

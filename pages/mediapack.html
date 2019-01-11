@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset=utf-8>
+    <meta name=viewport content="width=device-width,initial-scale=1">
+    <title>Download our mediapack</title>
+    <link href="/css/main.css" rel="stylesheet">
+    <link href="/css/mediapack.css" rel="stylesheet">
+    <script src='https://www.google.com/recaptcha/api.js'></script>
+</head>
+
+<body>
+    <div class="container">
+        {% include "includes/header.html" %}
+        <h1 id="mediapackPageHeading">Download our mediapack</h1>
+        <p>We can offer your organisation unique promotional opportunities to reach your target audience in Dorset.
+            Advertising offers in Dorset include outdoor, digital and print. For further details download our current
+            Media Pack and sign up for latest updates below</p>
+
+        <div class="row">
+            <form class="col-sm-8" id="demo-form" novalidate>
+
+                <div class="form-group">
+                    <label for="name"><span class="form-label-bold">Name</span></label>
+                    <input class="form-control form-bold-border" id="name" name="name" type="text">
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input class="form-control form-bold-border" id="email" name="email" type="email">
+                </div>
+                <div class="form-group">
+                    <label for="tel">Phone <span>(optional)</span></label>
+                    <input class="form-control form-bold-border" id="tel" name="tel" type="tel">
+                </div>
+                <hr>
+                <div class="form-group">
+                    <div class="multiple-choice" title="available assets">
+                        <input type="checkbox" id="keepInTouchBox" class="form-control">
+                        <label for="keepInTouchBox" class="mutliple-choice-label form-ck">Tick to confirm you are happy
+                            for us to keep in touch with you regarding advertising and sponsorship opportunities.
+                        </label>
+                    </div>
+                </div>
+                <hr>
+                <button class="btn btn-success">Submit</button>
+            </form>
+            <p id="privacyStatement">The details you provide in this form will not be used for any other purpose and
+                will not be shared with third parties unless required to by law. Under the General Data Protection
+                Regulations (GDPR) you have the right to ask that your details are removed. More information about how
+                we process your data under GDPR is available in our <a href="https://www.dorsetforyou.gov.uk/your-council/about-your-council/data-protection/privacy-policy/dorset-county-council/dorset-county-council-privacy-notice.aspx"
+                    target="_blank">privacy notice</a>. </p>
+            <hr>
+</body>
+</html>
