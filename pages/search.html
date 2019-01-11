@@ -4,7 +4,9 @@
 <head>
     <meta charset=utf-8>
     <meta name=viewport content="width=device-width,initial-scale=1">
-    <title>Browse assets</title>
+    <title>Browse Opportunities</title>
+    {% include "includes/header.html" %}
+    <meta name="og:title" property="og:title" content="Browse Advertising opportunities in Dorset">
     <link href="/css/main.css" rel="stylesheet">
     <link href="/css/search.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
@@ -17,7 +19,7 @@
         {% include "includes/header.html" %}
        
 
-        <h1 id="searchPageHeading">Search assets</h1>
+        <h1 id="searchPageHeading">Opportunites</h1>
 
         <div id="searchContainer">
             {% include "includes/filterform.html" %}
@@ -82,6 +84,9 @@
                     MAP!
                 </div>
                 <div id="assetsContainer">
+                    {% if results.length == 0 %}
+                        <div id="noResultsMessage">No opportunities found.</div>
+                    {% endif %}
                     {% for result in results %}
                     <div class="card asset-card">
                         <a href="{{result.document.reference}}" class="asset-link"></a>
