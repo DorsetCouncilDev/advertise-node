@@ -1,4 +1,4 @@
 module.exports = {
     "extends": "standard",
-    "semi":always
+    "semi":"always"
 };

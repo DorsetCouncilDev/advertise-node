@@ -6,6 +6,7 @@
     <title>{{asset.name}}</title>
     <link href="/css/main.css" rel="stylesheet">
     <link href="/css/asset.css" rel="stylesheet">
+    <script src="/javascript/assetPageMap.js"></script>
 </head>
 
 <body>
@@ -15,10 +16,52 @@
         <h1 id="assetPageHeading">{{asset.name}}</h1>
         <h2 id="assetPageSubHeading">{{asset.documentTypeName}} {% if asset.longText %} - {{asset.longText}} {% endif %}</h2> 
         <div id="availabilityContainer">
-    
-        {% if asset.availabilityStatus == 'true' %}<a href="/advertise/contact/book" class="btn btn-success">{{asset.availabilityDescription}}<br><span style="font-weight:bold">Book now!</span></a> {% endif %}
-        {% if asset.availabilityStatus == 'false' %}<a href="/advertise/contact/waitinglist" class="btn btn-light">Add me to waiting list</a> {% endif %}
+            {{asset.availabilityDescription}}<br>
+        {% if asset.availabilityStatus == 'true' %}<a href="/advertise/contact/book" class="btn btn-success">Book now!</a> {% endif %}
+        {% if asset.availabilityStatus == 'false' %}<a href="/advertise/contact/book" class="btn btn-dark">Add me to waiting list</a> {% endif %}
+        </div>
+<div id="locationContainer">
+        <div id="locationViewSelection">
+                <div class="view-selection">
+                    <input type="radio" class="view-radio-btn" id="mapView" name="locationView" value="mapView"
+                        onChange="selectView()">
+                    <label for="mapView" id="mapViewLabel" tabindex="0">Map</label>
+                </div>
+
+                <div class="view-selection">
+                    <input type="radio" class="view-radio-btn" id="streetView" name="locationView" value="streetView"
+                        onChange="selectView()">
+                    <label for="streetView" id="streetViewLabel" tabindex="0">Street view</label>
+                </div>
+            </div>
+            <div id="mapHolder">
+        <div id="map" class="show"></div>
+        <div id="pan" ></div>
+    </div>
         </div>
     </div>
+    {% for location in asset.locations %}
+    <input class="location-lat" type="hidden" value="{{location.latitude}}">
+    <input class="location-lng" type="hidden" value="{{location.longitude}}">
+    <input class="location-street-lat" type="hidden" value="{{location.streetviewLatitude}}">
+    <input class="location-street-lng" type="hidden" value="{{location.streetviewLongitude}}">
+    <input class="location-street-heading" type="hidden" value="{{location.streetviewHeading}}">
+    <input class="location-street-pitch" type="hidden" value="{{location.streetviewPitch}}">
+    {%- endfor %}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAVLqUxdgLoBovYi83r-2YZNgvZFlsJR2g&callback=initMap"
+        async defer></script>
+
+        <script>
+        function selectView(){
+            if (document.getElementById("mapView").checked) {
+                document.getElementById("pan").classList.remove("show");
+                document.getElementById("map").classList.add("show");
+            } else if (document.getElementById("streetView").checked) {
+                document.getElementById("pan").classList.add("show");
+                document.getElementById("map").classList.remove("show");
+        }
+    }
+        </script>
+    
 </body>
 </html>

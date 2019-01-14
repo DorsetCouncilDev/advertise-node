@@ -58,7 +58,6 @@ axios.interceptors.request.use(request => {
       };
 
     exports.getAvailabilityDescription = function(properties){
-        console.log("p-length: " + properties.length);
         for (var i = 0; i < properties.length; i++) {
             if (properties[i].propertyName == 'Availability') {
                 return properties[i].publishedValue;
