@@ -1,0 +1,24 @@
+#contactPageHeading{
+    font-size:28px;
+    margin-bottom:30px;
+}
+#backLinkContainer{
+    display: flex;
+    margin-bottom: 30px;
+}
+#backLink{
+    color:black;
+    &:hover{
+        color:darkslategray;
+        text-decoration: underline;
+    }
+}
+
+.bold-link{
+    font-weight: 500;
+    color:black;
+    text-decoration: underline;
+    &:hover{
+        color:darkslategray;
+    }
+}
