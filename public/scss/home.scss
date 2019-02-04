@@ -34,14 +34,10 @@ input {
 #browseLink{
     .browse-link{
         width:45px; 
+        fill:white;
     }
-    &:hover{
-        .browse-link{
-            color:white;
-        }
-    }
-    
 }
+    
 #searchGoBtn{
     background-color: $buttonGoDark;
     &:hover{

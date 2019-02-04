@@ -17,14 +17,18 @@ function sortDocuments(type) {
         var bPrice = null;
 
         if (typeof a.getElementsByClassName("price") === "undefined" || typeof a.getElementsByClassName("price")[0] === "undefined") {
-            aPrice = 0;
+            if (type == "price-low") 
+              return 1;
+           
 
         } else {
             aPrice = a.getElementsByClassName("price")[0].innerHTML;
             aPrice = Number(aPrice);
         }
         if (typeof b.getElementsByClassName("price") === "undefined" || typeof b.getElementsByClassName("price")[0] === "undefined") {
-            bPrice = 0;
+            if (type == "price-low") 
+                return -1;
+          
         } else {
             bPrice = b.getElementsByClassName("price")[0].innerHTML;
             bPrice = Number(bPrice);

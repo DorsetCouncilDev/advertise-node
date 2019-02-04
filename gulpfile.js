@@ -7,7 +7,7 @@ var browserSync = require('browser-sync').create();
 function startNodemon(done) {
     const STARTUP_TIMEOUT = 5000;
     const server = nodemon({
-      script: 'main.js',
+      script: 'app.js',
       stdout: false // without this line the stdout event won't fire
     });
     let starting = false;
@@ -31,7 +31,7 @@ function startNodemon(done) {
   }
   function startBrowserSync(done){
     browserSync.init({
-      proxy: "http://localhost:3000",
+      proxy: "http://hvvdproitw10d27:3000",
       files: ["public/**/*.*"],
       browser: "chrome",
       port: 5000,

@@ -73,3 +73,15 @@ axios.interceptors.request.use(request => {
             }
         }
       }
+
+      exports.getOtherProperties = function(properties){
+          var otherProperties = new Map();
+          for (var i = 0; i < properties.length; i++) {
+            if (properties[i].propertyName != 'Available' && properties[i].propertyName != 'Availability' && properties[i].propertyName != 'Price' && properties[i].publishedValue != null && properties[i].publishedValue != '') 
+                otherProperties.set(properties[i].propertyName,properties[i].publishedValue);
+        
+        }
+        return otherProperties;
+
+
+      }

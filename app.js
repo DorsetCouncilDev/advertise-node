@@ -37,10 +37,6 @@ app.use(sassMiddleware({
 // Declare assets location
 
 
-
-
-
-
 const port=process.env.PORT || 3000
 app.listen(port, () => {
     // a console.log() which triggers Nodemon's "stdout" event 

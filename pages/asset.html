@@ -17,19 +17,33 @@
         <h1 id="assetPageHeading">{{asset.name}}</h1>
         <h2 id="assetPageSubHeading">{{asset.documentTypeName}} {% if asset.longText %} - {{asset.longText}} {% endif
             %}</h2>
-        <div id="availabilityContainer">
-            {{asset.availabilityStatus}}
-            {{asset.availabilityDescription}}<br>
-            {% if asset.availabilityStatus == 'true' %}<a href="/advertise/contact/book/{{asset.reference}}" class="btn btn-success">Book
-                now!</a> {% endif %}
-            {% if asset.availabilityStatus != 'true' %}<a href="/advertise/contact/waitinglist/{{asset.reference}}" class="btn btn-dark">Add me
-                to waiting list</a> {% endif %}
+        <div id="availabilityContainer" {% if asset.availabilityStatus == 'true' %}class="available"{% endif %}>
+            <div id="availabilityDescription">{{asset.availabilityDescription}}</div>
+            {% if asset.availabilityStatus == 'true' %}
+            <div class="contact-action-button">
+                <a href="/advertise/contact/book/{{asset.reference}}" class="btn btn-success">Book now!</a>
+            </div> 
+            {% endif %}
+            {% if asset.availabilityStatus != 'true' %}
+            <div class="contact-action-button">
+                <a href="/advertise/contact/waitinglist/{{asset.reference}}" class="btn btn-dark">Add me to waiting list</a> 
+            </div>
+                {% endif %}
+        </div>
+        <div id="propertiesBlock">
+            <h3 id="detailsHeading">Details</h3>
+            {% for name, item in properties %}
+            <div class="property-block">
+               <div class="property-name">{{ name }}</div> 
+               <div>{{ item }}</div>
+            </div>
+            {% endfor %}
         </div>
         <div id="locationContainer">
             <div id="locationViewSelection">
                 <div class="view-selection">
                     <input type="radio" class="view-radio-btn" id="mapView" name="locationView" value="mapView"
-                        onChange="selectView()">
+                        onChange="selectView()" checked>
                     <label for="mapView" id="mapViewLabel" tabindex="0">Map</label>
                 </div>
 
@@ -44,6 +58,14 @@
                 <div id="pan"></div>
             </div>
         </div>
+
+
+     
+
+<hr>
+<p>Advertising on Dorset's roundabouts offers you one of the most cost-effective ways to raise your company's profile and promote your business, whilst making a positive contribution to the County's landscape. Get in touch to join the waiting list for roundabout sponsorship.</p>
+  
+      
     </div>
     {% for location in asset.locations %}
     <input class="location-lat" type="hidden" value="{{location.latitude}}">
@@ -66,6 +88,21 @@
                 document.getElementById("map").classList.remove("show");
             }
         }
+
+        document.addEventListener('DOMContentLoaded', function(){
+    
+  
+    var listItems = document.getElementsByClassName("item");
+  
+    
+    for(var i=0;i<listItems.length;i++){
+        listItems[i].addEventListener("click",function(evt){
+            for(var x=0;x<listItems.length;x++)
+                listItems[x].classList.remove("current");
+            evt.target.classList.add("current");
+       })
+    }
+  }, false);
     </script>
 
 </body>

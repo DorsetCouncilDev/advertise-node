@@ -8,7 +8,7 @@ function initMap() {
             lat: baseLat,
             lng: baseLong
         },
-        zoom: 8
+        zoom: 10
     });
     createMarkers(documentCards, map);
 }

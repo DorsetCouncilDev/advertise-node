@@ -17,7 +17,10 @@ console.log("number of locations: " + locationLatitudes.length);
             lat: lat,
             lng: lng
         },
-        zoom: 14
+        zoom: 14,
+        mapTypeControlOptions: {
+            mapTypeIds: [],
+          }
     });
     
     createMarker(position, map);

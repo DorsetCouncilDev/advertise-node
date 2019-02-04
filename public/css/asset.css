@@ -6,11 +6,20 @@
   font-weight: normal;
   color: #545454; }
 
+#detailsHeading {
+  margin-top: 30px;
+  font-size: 22px; }
+
 #availabilityContainer {
   margin-top: 30px;
   margin-bottom: 15px;
   border-left: 5px solid grey;
   padding-left: 15px; }
+  #availabilityContainer.available {
+    border-left: 5px solid darkgreen; }
+  #availabilityContainer .contact-action-button {
+    margin-top: 15px;
+    margin-bottom: 15px; }
 
 #mapHolder {
   width: 600px;
@@ -28,7 +37,8 @@
 
 #locationContainer {
   margin-top: 60px;
-  width: 60%; }
+  width: 60%;
+  margin-bottom: 60px; }
 
 #locationViewSelection {
   display: flex;
@@ -41,18 +51,58 @@
     line-height: 1.5;
     padding: .375rem .75rem;
     font-size: 1.1875rem;
-    border-radius: .25rem; }
+    border-radius: .25rem;
+    text-align: center; }
     #locationViewSelection .view-selection label .view-icon {
       fill: grey; }
   #locationViewSelection .view-selection input {
     display: none; }
   #locationViewSelection .view-selection input:checked + label {
-    color: black;
-    font-weight: bolder;
+    color: white;
     border-color: black;
-    background: #f5f5f5;
-    color: black; }
+    background: black; }
     #locationViewSelection .view-selection input:checked + label i {
       opacity: 1; }
     #locationViewSelection .view-selection input:checked + label:after {
       opacity: 1; }
+
+#propertiesBlock {
+  display: flex;
+  flex-direction: column;
+  width: 50%; }
+  #propertiesBlock .property-block {
+    background: #f1f1f1;
+    padding: 15px;
+    border-radius: 5px;
+    margin-bottom: 20px; }
+    #propertiesBlock .property-block .property-name {
+      font-weight: 600; }
+
+* {
+  font-family: arial; }
+
+#container {
+  display: flex;
+  justify-content: center; }
+
+#navContainer {
+  margin: 60px 0;
+  width: 400px; }
+  #navContainer #list {
+    display: flex;
+    list-style-type: none;
+    margin-bottom: 0;
+    padding-left: 0; }
+    #navContainer #list li {
+      width: 100px;
+      text-align: center;
+      margin-right: 20px;
+      font-size: 19px; }
+      #navContainer #list li:hover {
+        border-bottom: solid orange 3px;
+        cursor: pointer; }
+      #navContainer #list li.current {
+        border-bottom: solid orange 5px; }
+  #navContainer #navBottomLine {
+    border-bottom: solid 2px grey;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.3), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }

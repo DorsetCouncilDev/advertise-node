@@ -15,10 +15,8 @@ input {
   margin-bottom: 20px; }
 
 #browseLink .browse-link {
-  width: 45px; }
-
-#browseLink:hover .browse-link {
-  color: white; }
+  width: 45px;
+  fill: white; }
 
 #searchGoBtn {
   background-color: #18420e; }
