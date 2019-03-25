@@ -1,0 +1,15 @@
+{% macro documentTypeInfoBlock(name,reference,tagline) %}
+<div class="document-type-square">
+        <a href="/advertise/search/type/{{reference}}" class="type-search-link">
+<div class="document-type-icon">
+<img class="type-icon"  src="/images/icons/{{reference}}.svg">
+</div>
+<div class="document-type-name">
+    <div class="type-name">{{name}}</div>
+</div>
+<div class="type-text">
+    {{tagline}}
+    </div>
+</a>
+</div>
+{% endmacro %}

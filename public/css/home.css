@@ -1,8 +1,15 @@
+#homepageHeading {
+  font-size: 24px;
+  margin-top: 10px; }
+
+.home-section-heading {
+  font-size: 24px; }
+
 .home-action-label {
   font-size: 26px;
   text-align: left;
   font-weight: 400;
-  margin-bottom: 30px; }
+  margin-bottom: 15px; }
 
 input {
   border-color: black; }
@@ -14,14 +21,11 @@ input {
 #browseLinkBlock {
   margin-bottom: 20px; }
 
-#browseLink .browse-link {
-  width: 45px;
-  fill: white; }
-
-#searchGoBtn {
-  background-color: #18420e; }
-  #searchGoBtn:hover {
-    background-color: #276c17; }
+#browseLink {
+  font-size: 26px; }
+  #browseLink .browse-link {
+    width: 45px;
+    fill: white; }
 
 @media only screen and (min-width: 576px) {
   #postcodeSearchBlock {
@@ -34,48 +38,67 @@ input {
 #postcodeLabel {
   position: absolute; }
 
-#homepageHeading {
-  margin-top: 50px;
-  font-weight: 400;
-  font-size: 36px;
-  color: #3a3a3a; }
+#promoteBrandEmph {
+  color: black;
+  font-style: italic;
+  font-weight: 600; }
 
-.document-types-section {
-  margin-top: 30px;
-  padding: 15px;
-  color: #4b3202; }
-  .document-types-section .sub-heading-types {
-    max-width: 1340px;
-    margin-left: auto;
-    margin-right: auto; }
-  .document-types-section p {
-    max-width: 1340px;
-    margin-left: auto;
-    margin-right: auto; }
+@media only screen and (min-width: 700px) {
+  .home-section-heading {
+    font-size: 32px; } }
+
+@media only screen and (min-width: 540px) {
+  #homepageHeading {
+    font-size: 32px;
+    margin-top: 10px; } }
 
 .document-types-list {
-  margin-top: 50px;
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap; }
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 30px; }
 
 .sub-heading-types {
   font-size: 26px;
   margin-bottom: 15px; }
 
+.document-types-section {
+  margin-top: 15px;
+  margin-bottom: 50px; }
+
+#documentTypesParagraph {
+  font-size: 16px; }
+
+@media only screen and (min-width: 540px) {
+  .document-types-list {
+    justify-content: space-between; }
+  #documentTypesParagraph {
+    font-size: 19px; } }
+
 .document-type-square {
-  width: 400px;
-  background: #f1f1f1;
-  color: #4b3202;
-  padding: 10px;
-  margin-right: 25px;
+  width: 46%;
+  margin-right: 5px;
   margin-bottom: 25px; }
+  .document-type-square .type-search-link {
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #f7f7f7;
+    padding: 5px;
+    border: 1px solid  grey;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 #d8effd;
+    transition: background-color 1s; }
+    .document-type-square .type-search-link:hover {
+      background-color: #f0f9ff;
+      outline: orange 1px solid; }
 
 .type-icon {
-  width: 125px; }
+  width: 75px;
+  height: 100px;
+  margin-top: -10px; }
 
 .type-name {
-  font-size: 19px;
+  font-size: 16px;
   text-align: center;
   font-weight: 500; }
 
@@ -84,10 +107,115 @@ input {
   justify-content: center; }
 
 .type-text {
+  font-size: 14px;
   font-style: italic;
   text-align: center; }
 
-#promoteBrandEmph {
-  color: black;
+@media only screen and (min-width: 555px) {
+  .type-name {
+    font-size: 19px; }
+  .type-text {
+    font-size: 19px;
+    font-style: italic;
+    text-align: center; } }
+
+@media only screen and (min-width: 676px) {
+  .document-type-square {
+    background: #f7f7f7; }
+    .document-type-square .type-search-link {
+      padding: 15px; }
+  .type-icon {
+    width: 125px;
+    height: auto;
+    margin-top: 0; }
+  .type-name {
+    font-size: 19px; }
+  .document-type-icon {
+    display: flex;
+    justify-content: center; }
+  .type-text {
+    font-size: 19px;
+    font-style: italic;
+    text-align: center; } }
+
+@media only screen and (min-width: 800px) {
+  .document-type-square {
+    width: 30%; } }
+
+.ad-data-collection {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column; }
+  .ad-data-collection .ad-data {
+    line-height: 1;
+    background-color: white;
+    color: darkslategrey;
+    position: relative;
+    margin-bottom: 15px;
+    font-weight: 700;
+    font-size: 26px;
+    margin-right: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
+    background: #f1f1f1;
+    color: black;
+    padding-left: 15px; }
+    .ad-data-collection .ad-data .ad-data-label {
+      font-size: 19px;
+      font-weight: 400; }
+
+@media only screen and (min-width: 540px) {
+  .ad-data-collection .ad-data {
+    padding: 15px;
+    font-size: 32px; }
+    .ad-data-collection .ad-data .ad-data-label {
+      font-size: 22px; } }
+
+@media only screen and (min-width: 700px) {
+  .ad-data-collection {
+    flex-direction: row; }
+    .ad-data-collection .ad-data {
+      padding: 15px;
+      width: 45%;
+      font-size: 32px; }
+      .ad-data-collection .ad-data .ad-data-label {
+        font-size: 22px; } }
+
+@media only screen and (min-width: 990px) {
+  .ad-data-collection .ad-data {
+    max-width: 550px;
+    font-size: 48px; }
+    .ad-data-collection .ad-data .ad-data-label {
+      font-size: 28px; } }
+
+.quote-container {
+  padding: 10px;
+  background: #09466d;
+  color: #bae0f7;
+  margin-bottom: 25px;
+  margin-top: 25px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
+
+.customer-quote {
   font-style: italic;
-  font-weight: 600; }
+  font-size: 16px; }
+
+.quote-source {
+  font-size: 19px;
+  color: white; }
+
+@media only screen and (min-width: 360px) {
+  .quote-container {
+    padding: 20px; }
+  .customer-quote {
+    font-size: 19px; }
+  .quote-source {
+    font-size: 22px; } }
+
+@media only screen and (min-width: 540px) {
+  .quote-container {
+    padding: 30px; }
+  .customer-quote {
+    font-size: 22px; }
+  .quote-source {
+    font-size: 26px; } }

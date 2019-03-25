@@ -1,21 +1,18 @@
-$buttonBrowseDark: darken(#5975de,40%);
-$buttonBrowse: darken(#5975de,30%);
 
-$buttonBrowseHoverDark: darken(#5975de,40%);
-$buttonBrowseHover: darken(#5975de,20%);
-
-$buttonGoDark: darken(#60d844,40%);
-$buttonGo:darken(#60d844,30%);
-
- $buttonGoHoverDark: darken(#60d844,40%);
-$buttonGoHover:darken(#60d844,20%);
+#homepageHeading{
+    font-size: 24px;
+    margin-top: 10px;
+}
 
 
+.home-section-heading{
+font-size:24px;
+}
 .home-action-label {
     font-size: 26px;
     text-align:left;
     font-weight: 400;
-    margin-bottom:30px;
+    margin-bottom:15px;
 }
 
 input {
@@ -29,21 +26,17 @@ input {
 
 #browseLinkBlock {
     margin-bottom: 20px;
-    
+
 }
+
 #browseLink{
+    font-size:26px;
     .browse-link{
         width:45px; 
         fill:white;
     }
 }
-    
-#searchGoBtn{
-    background-color: $buttonGoDark;
-    &:hover{
-        background-color: $buttonGo;
-    }
-}
+
 @media only screen and (min-width: 576px) {
     #postcodeSearchBlock {
         margin-top: 30px;
@@ -59,67 +52,28 @@ input {
     position:absolute;
 }
 
-#homepageHeading{
-    margin-top:50px;
-    font-weight: 400;
-    font-size: 36px;
-    color:#3a3a3a;
-}
-.document-types-section{
-    margin-top:30px;
-    padding:15px;
-    color:hsl(40,96,15);
-    .sub-heading-types{
-        max-width:1340px;
-        margin-left:auto;
-        margin-right:auto;
-    }
-    p{
-        max-width:1340px;
-        margin-left:auto;
-        margin-right:auto;
-    }
-}
-.document-types-list{
-    margin-top:50px;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-.sub-heading-types{
-    font-size:26px;
-    margin-bottom:15px;
-}
 
-.document-type-square{
-    width:400px;
-   background:#f1f1f1;
-  color:hsl(40,96,15);
-    padding:10px;
-    margin-right:25px;
-    margin-bottom:25px;
-}
-.type-icon{
-    width:125px;
-}
-.type-name{
-    font-size: 19px;
-    text-align: center;
-    font-weight:500;
-}
-.document-type-icon{
-    display: flex;
-    justify-content: center;
-}
-.type-text{
-    font-style: italic; 
-    text-align:center;
-}
+
 
 #promoteBrandEmph{
     color:black;
     font-style: italic;
     font-weight:600;
 }
+@media only screen and (min-width: 700px) {
+ 
+    .home-section-heading{
+  font-size:32px;
+}
+}
 
+@media only screen and (min-width: 540px) {
+    #homepageHeading{
+        font-size: 32px;
+        margin-top: 10px;
+    }
+}
 
+@import "home-types-section";
+@import "home-data-items";
+@import "home-customer-quotes";

@@ -12,15 +12,13 @@
 <body>
     <div class="container">
         {% include "includes/header.html" %}
-       
-        
-        <h1 id="homepageHeading">Advertise in Dorset to <span id="promoteBrandEmph">promote your brand</span></h1>
+        <h1 id="homepageHeading">Local advertising solutions in Dorset</h1>
 
         <div class="row mt-4">
             <section class="col-sm-6 col-md-5" id="postcodeSearchBlock">      
                 <form v-on:submit.prevent="postcodesearch">
                     <div class="form-group" aria-labelledBy="search">
-                        <h2 class="home-action-label" id="search">Find opportunities near you</h2>
+                        <h2 class="home-action-label" id="search">Advertising location finder</h2>
                         <label class="invisible" for="postcode" id="postcodeLabel">Postcode</label>
                         <div class="input-group">
                             <input type="text" id="postcode" class="form-control  form-control-lg" placeholder="Enter full postcode" v-model="postcode">
@@ -36,69 +34,42 @@
                 <a title="browse opportunities" id="browseLink" href="/advertise/search" class="btn btn-primary btn-block">Start browsing now<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="browse-link"><path class="secondary" d="M14.59 13H7a1 1 0 0 1 0-2h7.59l-2.3-2.3a1 1 0 1 1 1.42-1.4l4 4a1 1 0 0 1 0 1.4l-4 4a1 1 0 0 1-1.42-1.4l2.3-2.3z"/></svg></a>
             </section>
         </div>
-        <section class="document-types-section full-width">
-                <div class="sub-heading-types"> Current opportunities</div>
-            <p>Our broad portfolio of sponsorship, advertising sites and promotional opportunities give the
-        potential for your message to be widely viewed, whether you’re looking to promote a
-        product, service or event.</p>
-           
-            <div class="document-types-list">
-                <div class="document-type-square">
-                    <div class="document-type-icon">
-                  <img class="type-icon"  src="/images/icons/Roundabout-sponsorship.svg">
-                    </div>
-                    <div class="document-type-name">
-                        <div class="type-name">Roundabout sponsorship</div>
-                    </div>
-                    <div class="type-text">
-                        Over 80 roundabouts in high traffic areas
-                        </div>
+        <section data-aos="fade-up">
+                <h1 class="home-section-heading">Advertise in Dorset to reach:</h1>
+                 <div class="ad-data-collection  mb-5">
+                    <div class="ad-data">18 <span class="ad-data-label">Million yearly visitors</span></div>
+                    <div class="ad-data">375,050 <span class="ad-data-label">residents</span></div>
+                    <div class="ad-data">158,738 <span class="ad-data-label">households</span></div>
+                    <div class="ad-data">19,995 <span class="ad-data-label">businesses</span></div>
                 </div>
-        
-                <div class="document-type-square">
-                    <div class="document-type-icon">
-                  <img class="type-icon"  src="/images/icons/bin-lid-advertising.svg">
-                    </div>
-                    <div class="document-type-name">
-                        <div class="type-name">Bin Lid Advertising</div>
-                    </div>
-                    <div class="type-text">
-                        Unique and highly targeted.
-                        </div>
-                </div>
-        
-
-         
-                <div class="document-type-square">
-                    <div class="document-type-icon">
-                  <img class="type-icon"  src="/images/icons/car-parking-ticket-advertising.svg">
-                    </div>
-                    <div class="document-type-name">
-                        <div class="type-name">Car Parking Ticket Advertising</div>
-                    </div>
-                    <div class="type-text">
-                        Directly into the hands of your audience.
-                        </div>
-                </div>
-
-                <div class="document-type-square">
-                    <div class="document-type-icon">
-                  <img class="type-icon"  src="/images/icons/bus-shelter-advertising.svg">
-                    </div>
-                    <div class="document-type-name">
-                        <div class="type-name">Bus Shelter Advertising</div>
-                    </div>
-                    <div class="type-text">
-                        Unique and highly targeted.
-                        </div>
-                </div>
-
-            </div>
-
-          
             </section>
-
+        <section class="document-types-section full-width">
+            <h2 class="home-section-heading">Advertise your business here</h2>
+                <p>Dorset County Council offers a broad portfolio of sponsorship, advertising sites and promotional opportunities that can help your message gain wide coverage, whether you’re looking to promote a product, service or event. With our local knowledge and options for all sized budgets, we work with organisations across the county to provide unique local advertising solutions in Dorset. Sponsorship and advertising fees are used to support council services which benefit the residents and businesses of Dorset.</p>
+                {% import 'includes/asset-type-block.html' as doctype %}
+                <div class="document-types-list">
+                {% for type in documentTypes %}
+                    {{doctype.documentTypeInfoBlock(type.name,type.reference,type.tagline)}}
+                {%- endfor %}
+            </div>
+        </section>
+        <section data-aos="fade-up">
+                <h2 class="home-section-heading">What others say</h2>
+                
+                <div class="quote-container">
+                <blockquote class="customer-quote">"We'd recommend roundabout sponsorship in Dorset as a great way of raising brand awareness, and at Dorset Windows we find it provides good value for money. With the right roundabout, we're able to promote our brand as people travel around and be in the forefront of people's minds"</blockquote>
+                
+                <p class="quote-source">Kath Pumfrey, of Dorset Windows</p>
+                </div>
+                <div class="quote-container">
+                <blockquote class="customer-quote">"At Blue Pool, we’ve had a very positive experience of roundabout sponsorship; the attraction has benefited from an increase in visitor numbers and word-of-mouth, and we’ve had growing in interest in Wareham Bears. We’re also happy that, through our sponsorship, the community benefits from well-maintained and tidy roundabouts. 
+                We’d recommend roundabout sponsorship in Dorset to other businesses and attractions due to the increased number of customers and the greater local awareness that it provides"</blockquote>
+                
+                <p class="quote-source">Carolyn Snook, of Blue Pool</p>
+                </div>
+                </section>
      
     </div>
+    {% include "includes/footer.html" %}
 </body>
 </html>

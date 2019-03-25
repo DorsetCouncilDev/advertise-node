@@ -14,9 +14,23 @@
     <div class="container">
         {% include "includes/header.html" %}
 
-        <h1 id="assetPageHeading">{{asset.name}}</h1>
-        <h2 id="assetPageSubHeading">{{asset.documentTypeName}} {% if asset.longText %} - {{asset.longText}} {% endif
-            %}</h2>
+        <div id="assetHeadingSection">
+            <div id="assetTypeIcon">
+                    <img src="/images/icons/{{asset.documentTypeReference}}.svg" width="50" alt="">
+            </div>
+            <div id="assetHeadings">
+                    <h1 id="assetPageHeading">{{asset.name}}</h1> 
+                    <h2 id="assetPageSubHeading">{{asset.documentTypeName}} {% if asset.longText %} - {{asset.longText}} {% endif
+                            %}</h2>
+            </div>
+            <div id="priceSection">
+
+            </div>
+        </div>
+     
+       
+
+        
         <div id="availabilityContainer" {% if asset.availabilityStatus == 'true' %}class="available"{% endif %}>
             <div id="availabilityDescription">{{asset.availabilityDescription}}</div>
             {% if asset.availabilityStatus == 'true' %}
@@ -26,7 +40,7 @@
             {% endif %}
             {% if asset.availabilityStatus != 'true' %}
             <div class="contact-action-button">
-                <a href="/advertise/contact/waitinglist/{{asset.reference}}" class="btn btn-dark">Add me to waiting list</a> 
+                <a href="/advertise/contact/waitinglist/{{asset.reference}}" class="btn btn-primary">Add me to waiting list</a> 
             </div>
                 {% endif %}
         </div>

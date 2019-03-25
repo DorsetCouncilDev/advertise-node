@@ -1,0 +1,146 @@
+@import 'mixins/breakpoints';
+
+#dcFooter {
+    margin-top: 60px;
+    padding: 50px 15px;
+    background-color: #f2f2f2;
+
+    .footer-items {
+        display: flex;
+    }
+
+    #servicesInfoLinksLabel,
+    #councilLinksLabel {
+        font-weight: 700;
+        color: rgb(92, 96, 107);
+        font-size: 25px;
+    }
+
+    .services-info-list,
+    .council-links-list,
+    .common-links-list,
+    .social-links-list {
+        list-style: none;
+        padding-left: 0;
+    }
+
+    .council-links-list,
+    .common-links-list {
+        li {
+            margin-top: 12px;
+        }
+    }
+
+    .common-links-list,
+    .social-links-list {
+        display: flex;
+        flex-wrap: wrap;
+
+        li {
+            margin-right: 20px;
+        }
+    }
+
+    .council-links-list {
+        width: 500px;
+    }
+
+    .services-info-list {
+        column-count: 2;
+        width: 400px;
+        display: block;
+
+        li:not(:first-of-type) {
+            margin-top: 12px;
+        }
+    }
+
+    a {
+        color: #206497;
+        text-decoration: underline;
+        font-size: 15px;
+    }
+
+    .common-links-block {
+        display: flex;
+    }
+
+    .social-list-item {
+        margin-right: 25px;
+        a{
+            color: #cb436a;
+            text-decoration:none;
+        }
+    }
+
+    .visuallyhidden {
+        clip: rect(1px, 1px, 1px, 1px);
+        height: 1px;
+        overflow: hidden;
+        position: absolute !important;
+        width: 1px;
+        left: 0;
+    }
+
+    .footer-common-links {
+        display: flex;
+
+        .footer-logo {
+            margin-right: 50px;
+            height: 70px;
+            margin-top: 10px;
+        }
+    }
+
+    .common-links-list {
+        display: flex;
+        width: 500px;
+        flex-wrap: wrap;
+
+        li {
+            margin-right: 20px;
+        }
+    }
+}
+
+@media only screen and (max-width: 970px) {
+    #dcFooter {
+        flex-direction: column;
+        padding: 30px 15px;
+
+        .footer-items {
+            flex-direction: column;
+        }
+
+        #servicesInfoLinksLabel,
+        #councilLinksLabel {
+            font-size: 20px;
+        }
+
+        .services-info-list,
+        .council-links-list,
+        .common-links-list {
+            flex-direction: column;
+            width: auto;
+        }
+
+        .services-info-list {
+            column-count: 1;
+            width: auto;
+        }
+
+        .footer-common-links {
+            flex-direction: column;
+            flex-direction: column-reverse;
+        }
+
+        .common-links-block {
+            flex-direction: column;
+        }
+
+        .footer-logo {
+            width: 150px;
+            margin-top: 15px;
+        }
+    }
+}

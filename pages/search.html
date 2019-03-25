@@ -89,7 +89,11 @@
                     {% for result in results %}
                     <div class="card asset-card">
                         <a href="{{result.document.reference}}" class="asset-link"></a>
-                        <div class="card-body">{{result.document.name}}<p> {% if result.document.price %} £ <span class="price">{{result.document.price}}</span>{%
+<div class="card-header asset-header">
+                        <img src="/images/icons/{{result.document.documentTypeReference}}.svg" width="50px">
+                        {{result.document.name}}
+                    </div>
+                        <div class="card-body"><p> {% if result.document.price %} £ <span class="price">{{result.document.price}}</span>{%
                                 endif %}</p>
                             <p> {% if result.distanceFromCoordinate %}{{result.distanceFromCoordinate |
                                 round(1,'floor')}}{% endif %} </p>

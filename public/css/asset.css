@@ -1,5 +1,6 @@
 #assetPageHeading {
-  font-size: 24px; }
+  font-size: 24px;
+  font-weight: 600; }
 
 #assetPageSubHeading {
   font-size: 24px;
@@ -9,6 +10,15 @@
 #detailsHeading {
   margin-top: 30px;
   font-size: 22px; }
+
+#assetHeadingSection {
+  display: flex; }
+  #assetHeadingSection #assetTypeIcon {
+    width: 75px;
+    margin-right: 15px;
+    position: relative; }
+    #assetHeadingSection #assetTypeIcon img {
+      width: 100%; }
 
 #availabilityContainer {
   margin-top: 30px;
@@ -76,7 +86,8 @@
     border-radius: 5px;
     margin-bottom: 20px; }
     #propertiesBlock .property-block .property-name {
-      font-weight: 600; }
+      font-weight: 600;
+      margin-bottom: 5px; }
 
 * {
   font-family: arial; }

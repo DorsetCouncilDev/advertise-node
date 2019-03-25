@@ -1,5 +1,6 @@
 #assetPageHeading {
     font-size: 24px;
+    font-weight: 600;
 }
 
 #assetPageSubHeading {
@@ -11,8 +12,18 @@
     margin-top:30px;
     font-size:22px;
 }
-#availabilityDescription {}
 
+#assetHeadingSection{
+    display:flex;
+    #assetTypeIcon{
+        width:75px;
+        margin-right:15px;
+        position: relative;
+        img{
+            width:100%;
+        }
+    }
+}
 #availabilityContainer {
     margin-top: 30px;
     margin-bottom: 15px;

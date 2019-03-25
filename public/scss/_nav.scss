@@ -1,4 +1,5 @@
 .ad-breadcrumb {
+    display: none;
     list-style: none;
     display: inline-flex;
     flex-wrap: nowrap;
@@ -23,12 +24,10 @@
     }
 }
 #contactContainer{
-   // background:hsl(202,91%,36%);
+    display: none;
     padding:2px 0;
-   // border-top:hsl(184,60,60) solid 1px;
-   // border-bottom:hsl(184,60,60)  solid 1px;
-   border-top:solid 2px lightgrey;
-   border-bottom:solid 2px lightgrey;
+   border-top:solid 2px #ededed;
+   border-bottom:solid 2px #ededed;
    margin-bottom:30px;
    a{ 
       // color: hsl(202,91%,94%);
@@ -58,6 +57,9 @@
                 fill:none;
                 stroke: lightgrey;
             }
+        }
+        svg{
+            margin-right:5px;
         }
    }
 }

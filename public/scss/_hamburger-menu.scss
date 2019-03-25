@@ -1,0 +1,31 @@
+
+#hamburger{
+    display:none;
+  }
+   #mobileMenu {
+      display:none;
+  }
+  .hamburger input[type=checkbox]:checked ~ #mobileMenu {
+    display:block;
+    position:absolute;
+    left:0;
+    background:#f4f4f4;
+    padding:5px;
+    width:100%;
+    z-index: 12;
+    min-height: 50vh;
+    border-bottom: solid 2px #094760;
+    ul{
+      list-style:none;
+      padding-left:0;
+      padding-top: 20px;
+      padding-bottom: 20px;
+      z-index: 2;
+      li{
+          
+          text-align: center;
+          padding:15px 0;
+          border-bottom:solid 1px grey;
+      }
+    }
+  }
